@@ -3,21 +3,19 @@
 // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 
 void main() {
-  print(Solution().twoSum([1, 3, 5, 3, 4, 6], 1));
+  print(Solution().twoSum([3, 2, 4], 6));
 }
 
 class Solution {
   List<int> twoSum(List<int> nums, int target) {
-    int v = 0;
-    List<int> makeUpList = [];
-    for (int i in nums) {
-      v += i;
-      int m = nums.indexOf(i);
-      makeUpList.add(m);
-      if (v == target) {
-        break;
+    Map<int, int> hashTable = {};
+    for (int i = 0; i < nums.length; i++) {
+      int complement = target - nums[i];
+      if (hashTable.containsKey(complement)) {
+        return [hashTable[complement]!, i];
       }
+      hashTable[nums[i]] = i;
     }
-    return makeUpList;
+    return [];
   }
 }
