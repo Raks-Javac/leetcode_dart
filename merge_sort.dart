@@ -59,10 +59,17 @@ extension SortExtention on List<int> {
 
 void main() {
   DateTime startTime = DateTime.now();
-  print([1, 3, 4, 1, 2, 4].mSort());
+  print([1, 3, 4, 1, 2, 4].normalSort());
 
   DateTime endTime = DateTime.now();
 
   Duration difference = endTime.difference(startTime);
   print('Time taken: ${difference.inMilliseconds} milliseconds');
 }
+
+// mSort
+// dart run merge_sort.dart  0.44s user 0.11s system 32% cpu 1.704 total
+
+
+//normal sort
+// dart run merge_sort.dart  0.43s user 0.11s system 60% cpu 0.882 total
